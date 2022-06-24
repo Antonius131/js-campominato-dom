@@ -23,7 +23,20 @@ function squareGenerator() {
    return createSquare;
 }
 
+function generatedNumber(list, min, max) {
 
+   let validNumber = true;
+    
+   while(validNumber) {
+      let randomNumber =  Math.floor(Math.random() * (max - min) + min);
+      validNumber = list.includes[randomNumber];
+
+      if (!validNumber) {
+         list.push(randomNumber);
+      }
+      
+   }
+}
 
 
 
@@ -34,10 +47,16 @@ const playBtn = document.getElementById('play-btn');
 
 playBtn.addEventListener('click', function(){
 
-
-
    gridWrapper.innerHTML='';
    gridWrapper.classList.add('game-grid');
+
+
+   const bombs = [];
+
+   for (let i=0; i<16; i++) {
+      generatedNumber(bombs, 1, 100);
+   }
+   console.log(bombs);
 
 
    for (let i = 1;  i <= 100;  i++) {
@@ -46,8 +65,11 @@ playBtn.addEventListener('click', function(){
 
 
       square.addEventListener('click', function(){
-         square.classList.toggle('active');
+         square.classList.add('active');
          console.log(`hai cliccato la cella ${i}`);
+         if (bombs.includes(i)) {
+            square.classList.add('bomb');
+         }
       });
 
       gridWrapper.append(square);
@@ -65,28 +87,5 @@ playBtn.addEventListener('click', function(){
  * 
  * 
  */
-
-
-function generatedNumber(list, min, max) {
-
-   let validNumber = true;
-    
-   while(validNumber) {
-      let randomNumber =  Math.floor(Math.random() * (max - min) + min);
-      validNumber = list.includes[randomNumber];
-
-      if (!validNumber) {
-         list.push(randomNumber);
-      }
-      
-   }
-}
-
- const bombs = [];
-
- for (let i=0; i<16; i++) {
-    generatedNumber(bombs, 1, 100);
- }
- console.log(array);
 
 

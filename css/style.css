@@ -66,6 +66,11 @@ main {
    color: #7fffd4;
 }
 
+.bomb {
+   background-color: #a40031;
+   color: #fff;
+}
+
 
 
 /* footer */
