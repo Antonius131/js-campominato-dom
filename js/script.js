@@ -23,20 +23,6 @@ function squareGenerator() {
    return createSquare;
 }
 
-function generatedNumber(list, min, max) {
-
-   let validNumber = true;
-    
-   while(validNumber) {
-      let randomNumber =  Math.floor(Math.random() * (max - min) + min);
-      validNumber = list.includes[randomNumber];
-
-      if (!validNumber) {
-         list.push(randomNumber);
-      }
-      
-   }
-}
 
 
 
@@ -81,5 +67,26 @@ playBtn.addEventListener('click', function(){
  */
 
 
+function generatedNumber(list, min, max) {
+
+   let validNumber = true;
+    
+   while(validNumber) {
+      let randomNumber =  Math.floor(Math.random() * (max - min) + min);
+      validNumber = list.includes[randomNumber];
+
+      if (!validNumber) {
+         list.push(randomNumber);
+      }
+      
+   }
+}
+
+ const bombs = [];
+
+ for (let i=0; i<16; i++) {
+    generatedNumber(bombs, 1, 100);
+ }
+ console.log(array);
 
 
