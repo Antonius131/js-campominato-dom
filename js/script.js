@@ -23,17 +23,41 @@ function squareGenerator() {
    return createSquare;
 }
 
+function generatedNumber(list, min, max) {
+
+   let validNumber = true;
+    
+   while(validNumber) {
+      let randomNumber =  Math.floor(Math.random() * (max - min) + min);
+      validNumber = list.includes[randomNumber];
+
+      if (!validNumber) {
+         list.push(randomNumber);
+      }
+      
+   }
+}
+
+
+
+
+
+
 const gridWrapper = document.getElementById('grid-wrapper');
 const playBtn = document.getElementById('play-btn');
 
 playBtn.addEventListener('click', function(){
 
+
+
    gridWrapper.innerHTML='';
    gridWrapper.classList.add('game-grid');
 
+
    for (let i = 1;  i <= 100;  i++) {
       const square = squareGenerator();
-      const cellNumbers = square.innerHTML = i;
+      square.innerHTML = i;
+
 
       square.addEventListener('click', function(){
          square.classList.toggle('active');
@@ -56,17 +80,6 @@ playBtn.addEventListener('click', function(){
  * 
  */
 
-const randomNumbersList = [];
 
-for (let i=1; i<=16; i++) {
-   let randomNumber = Math.floor(Math.random() * (101 - 1) + 1);
 
-   if (randomNumber != i) {
-      randomNumbersList.push(randomNumber);
-      randomNumber;
-   } 
 
-   
-}
-
-console.log(randomNumbersList);
