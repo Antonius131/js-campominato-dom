@@ -33,7 +33,7 @@ playBtn.addEventListener('click', function(){
 
    for (let i = 1;  i <= 100;  i++) {
       const square = squareGenerator();
-      square.innerHTML = i;
+      const cellNumbers = square.innerHTML = i;
 
       square.addEventListener('click', function(){
          square.classList.toggle('active');
@@ -44,3 +44,29 @@ playBtn.addEventListener('click', function(){
    };
 
 });
+
+
+/**
+ * 
+ *    Devo generaare una lista di 16 numeri casuali nelle celle della griglia (le bombe);
+ *       ciclo 'for' con math.random per generare i numeri;
+ *       se il numero generato è già presente nella cella, generare un altro numero
+ * 
+ * 
+ * 
+ */
+
+const randomNumbersList = [];
+
+for (let i=1; i<=16; i++) {
+   let randomNumber = Math.floor(Math.random() * (101 - 1) + 1);
+
+   if (randomNumber != i) {
+      randomNumbersList.push(randomNumber);
+      randomNumber;
+   } 
+
+   
+}
+
+console.log(randomNumbersList);
