@@ -52,7 +52,6 @@ playBtn.addEventListener('click', function(){
 
 
    const bombs = [];
-
    for (let i=0; i<16; i++) {
       generatedNumber(bombs, 1, 100);
    }
@@ -62,13 +61,16 @@ playBtn.addEventListener('click', function(){
    for (let i = 1;  i <= 100;  i++) {
       const square = squareGenerator();
       square.innerHTML = i;
-
-
+      
       square.addEventListener('click', function(){
          square.classList.add('active');
-         console.log(`hai cliccato la cella ${i}`);
+         let score = document.querySelectorAll('.active');
          if (bombs.includes(i)) {
+            square.classList.remove('active');
             square.classList.add('bomb');
+            alert(`Hai perso! Il tuo punteggo è ${score.length - 1}`)
+         } else if (score.length === 84) {
+            alert('hai vinto!');
          }
       });
 
